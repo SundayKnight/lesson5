@@ -1,0 +1,30 @@
+# vscode
+.vscode
+
+# hardhat
+artifacts
+cache
+deployments
+node_modules
+coverage
+coverage.json
+typechain
+
+# don't push the environment vars!
+.env
+.env-localhost
+.env-hardhat
+.env-polygonMumbai
+
+# lock files
+yarn.lock
+package-lock.json
+.gitattributes
+.mocharc.json
+.npmignore
+.prettierignore
+.prettierrc
+.solcover.js
+.solhint.json
+.solhintignore
+gas-report.txt
