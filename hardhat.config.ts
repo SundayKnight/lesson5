@@ -35,9 +35,9 @@ const config: HardhatUserConfig = {
             hardfork: "merge",
             // If you want to do some forking set `enabled` to true
             forking: {
-                url: MAINNET_RPC_URL,
+                url: "https://eth-mainnet.g.alchemy.com/v2/YWbOIH4mLXSlX3jwYIofR8_0YSmPT8FV",
                 blockNumber: Number(FORKING_BLOCK_NUMBER),
-                enabled: false,
+                enabled: true,
             },
             chainId: 31337,
         },

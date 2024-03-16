@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.19;
 
+import "hardhat/console.sol";
 /**
  * @title MyToken
  * @dev A simple ERC-20 token contract with minting, burning, and transfer functionalities.
@@ -130,7 +131,6 @@ contract MyToken {
     function approve(address spender, uint256 value) public returns (bool) {
         require(spender != address(0), "MyToken: Approve to the zero address");
         _allowance[msg.sender][spender] = value;
-
         emit Approval(msg.sender, spender, value);
 
         return true;
