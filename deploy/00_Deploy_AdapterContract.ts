@@ -1,6 +1,6 @@
 import { getNamedAccounts, deployments } from "hardhat";
 import { DeployFunction } from "hardhat-deploy/types"
-//import { verify } from "../deploy/helpers/verify";
+import verify  from "../deploy/helpers/verify";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { appendFileSync, readFileSync } from "fs";
 
@@ -35,27 +35,27 @@ const deployFunction: DeployFunction = async function ({deployments, getNamedAcc
   )
   console.log(`AdapterContract deployed at ${AdapterContract.address}`)
 
-  //await verify(AdapterContract.address, args);
+  await verify(AdapterContract.address, args);
 
   const oneTokenArgs = [ONE_TOKEN_NAME, ONE_TOKEN_SYMBOL];
   const oneToken = await deploy(TOKEN_CONTRACT_NAME, {
     from: deployer,
     log: true,
     args: oneTokenArgs,
-   // waitConfirmations: 6,
+    waitConfirmations: 6,
   });
   console.log(`${ONE_TOKEN_NAME} deployed at: ${oneToken.address}`);
-  //await verify(oneToken.address, oneTokenArgs);
+  await verify(oneToken.address, oneTokenArgs);
 
   const twoTokenArgs = [TWO_TOKEN_NAME, TWO_TOKEN_SYMBOL];
   const twoToken = await deploy(TOKEN_CONTRACT_NAME, {
     from: deployer,
     log: true,
     args: twoTokenArgs,
- //   waitConfirmations: 6,
+    waitConfirmations: 6,
   });
   console.log(`${TWO_TOKEN_NAME} deployed at: ${twoToken.address}`);
-  // await verify(twoToken.address, twoTokenArgs);
+  await verify(twoToken.address, twoTokenArgs);
 }
 
 export default deployFunction;
