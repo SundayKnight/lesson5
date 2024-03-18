@@ -5,7 +5,7 @@ import { HardhatRuntimeEnvironment, TaskArguments } from "hardhat/types";
 
 task("collectAllFees", "Collects all accumulated fees for a position")
   .addParam("contract", "The AdapterContract address")
-  .addParam("tokenId", "The position token ID")
+  .addParam("tokenid", "The position token ID")
   .setAction(
     async (
       taskArgs: TaskArguments,
@@ -18,7 +18,7 @@ task("collectAllFees", "Collects all accumulated fees for a position")
         )
       );
 
-      const tokenId = taskArgs.tokenId as BigNumber;
+      const tokenId = taskArgs.tokenid as BigNumber;
 
       const position = await v3Adapter.deposits(tokenId);
 

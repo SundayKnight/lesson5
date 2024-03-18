@@ -5,7 +5,7 @@ import { HardhatRuntimeEnvironment, TaskArguments } from "hardhat/types";
 
 task("decreaseLiquidity", "Decreases position liquidity")
   .addParam("contract", "The AdapterContract address")
-  .addParam("tokenId", "Minted token with id")
+  .addParam("tokenid", "Minted token with id")
   .addParam("liquidity", "Liquidity to decrease")
   .setAction(
     async (
@@ -19,7 +19,7 @@ task("decreaseLiquidity", "Decreases position liquidity")
         )
       );
 
-      const tokenId: BigNumber = taskArgs.tokenId;
+      const tokenId: BigNumber = taskArgs.tokenid;
       const liquidity: BigNumber = taskArgs.liquidity;
 
       await v3Adapter.decreaseLiquidity(tokenId, liquidity);
