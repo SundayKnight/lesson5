@@ -232,7 +232,7 @@ contract AdapterContract {
                 amount0Min: 0,
                 amount1Min: 0,
                 recipient: address(this),
-                deadline: block.timestamp + 600 seconds
+                deadline: block.timestamp
             })
         );
         deposits[tokenId] = Deposit({
@@ -307,7 +307,7 @@ contract AdapterContract {
                 liquidity: liquidity,
                 amount0Min: 0,
                 amount1Min: 0,
-                deadline: block.timestamp + 600 seconds
+                deadline: block.timestamp
             })
         );
         uint128 newLiquidity = deposits[tokenId].liquidity -= liquidity;
@@ -371,7 +371,7 @@ contract AdapterContract {
                 amount1Desired: amountAdd1,
                 amount0Min: 0,
                 amount1Min: 0,
-                deadline: block.timestamp + 600 seconds
+                deadline: block.timestamp
             })
         );
         uint128 newLiquidity = deposits[tokenId].liquidity += liquidity;

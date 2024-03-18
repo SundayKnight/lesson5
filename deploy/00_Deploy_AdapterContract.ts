@@ -14,18 +14,18 @@ const ONE_TOKEN_NAME = "OneMyToken";
 const ONE_TOKEN_SYMBOL = "MTK";
 
 const TWO_TOKEN_NAME = "TwoMyToken";
-const TWO_TOKEN_SYMBOL = "MTK2";
+const TWO_TOKEN_SYMBOL = "TMK";
 
 const deployFunction: DeployFunction = async function ({deployments, getNamedAccounts, run}: HardhatRuntimeEnvironment) 
 {
   const { deploy, log } = deployments;
   const { deployer } = await getNamedAccounts();
-  const args = [POSITION_MANAGER_ADDRESS, SWAP_ROUTER_ADDRESS];
+  const adapterArgs = [POSITION_MANAGER_ADDRESS, SWAP_ROUTER_ADDRESS];
   const AdapterContract = await deploy(CONTRACT_NAME, {
     from: deployer,
     log: true,
-    args: args,
-   // waitConfirmations: 6,
+    args: adapterArgs,
+    waitConfirmations: 6,
   });
   
    //Sync env file
@@ -35,7 +35,7 @@ const deployFunction: DeployFunction = async function ({deployments, getNamedAcc
   )
   console.log(`AdapterContract deployed at ${AdapterContract.address}`)
 
-  await verify(AdapterContract.address, args);
+  await verify(AdapterContract.address, adapterArgs);
 
   const oneTokenArgs = [ONE_TOKEN_NAME, ONE_TOKEN_SYMBOL];
   const oneToken = await deploy(TOKEN_CONTRACT_NAME, {
